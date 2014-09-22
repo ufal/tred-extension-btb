@@ -5,7 +5,7 @@
  <root name="btb">
   <structure>
    <member name="meta" required="1" type="meta.type"/>
-   <member name="trees" role="#TREES" required="1">
+   <member name="sentences" role="#TREES" required="1">
     <sequence>
       <element name="S" type="S.type"/>
     </sequence>

@@ -51,7 +51,7 @@ if ($^O eq 'MSWin32') {
 my $converted_dir = File::Spec->rel2abs($opts{'output-dir'});
 make_path($converted_dir) unless -d $converted_dir;
 
-my ($terminal_count, $nonterminal_count, $elip_count, $order);
+my (%counters, $order);
 my $sentence_id;
 my (@nodes, %ref_to_target, %target_to_ref, %cat_values);
 for my $filename (@files) {
@@ -79,12 +79,13 @@ for my $filename (@files) {
    <desc>Converted from Bulgarian Treebank file $basename</desc>
   </annotation_info>
  </meta>
- <trees>
+ <sentences>
 HEADER
 
   $dom->find('S')->each(sub {
     my ($e, $count) = @_;
-    ($terminal_count, $nonterminal_count, $elip_count, $order)=(0,0,0,0);
+    $order=0;
+    %counters = ();
     $sentence_count++;
     $sentence_id = "$base_id-s$sentence_count";
 
@@ -116,32 +117,12 @@ HEADER
   });
 
 $buff .= <<'FOOTER';
-  </trees>
+  </sentences>
 </btb>
 FOOTER
 
   write_file(File::Spec->catfile($converted_dir, "$base_id.pml"), {binmode => 'utf8'}, $buff);
 }
-# my $cat_values = join "\n",map qq{      <value>$_</value>}, sort keys %cat_values;
-# print <<"EOF";
-#   <type name="postag.type">
-#     <choice>
-# $cat_values
-#     </choice>
-#   </type>
-# EOF
-
-# sub stats {
-#   my ($e, $count) = @_;
-
-#   if (!$e->children) {
-#     $terminals{$e->type} = 1;
-#   } else {
-#     $e->children->each(\&stats);
-#   }
-# }
-
-# say join "\n", keys %terminals;
 
 sub process_node {
   my ($parent) = @_;
@@ -149,88 +130,18 @@ sub process_node {
   return sub {
     my ($e, $count) = @_;
 
-    if ($e->type =~ /-Elip$/ || $e->type =~ /^pro-/) {
-      $e->children->each(process_node($parent)) if $e->children;
-      return;
-    }
-
-    if (!$e->children) {
-      $terminal_count++;
-      my $terminal_id = "$sentence_id-t$terminal_count";
-      my $node = {
-        -name => 'terminal',
-        -attributes => { id => $terminal_id },
-        -children => [
-          { -name => 'category', -content => $e->type },
-          { -name => 'form', -content => $e->text },
-          { -name => 'order', -content => $order++ },
-        ]
-      };
-      # my $idref = $e->attr('idref');
-      # if ($idref) {
-      #   $node->{-attributes}->{'id.rf'} = $e->attr('idref') ;
-      #   $target_to_ref{$terminal_id} = $idref;
-      #   $ref_to_target{$idref}->{$terminal_id} = $node;
-      #   push @nodes, $node;        
-      # }
-      for (grep { !/ref$/ } keys %{$e->attr}) {
-        push @{$node->{-children}}, { -name => $_, -content => $e->attr($_) };
-      }
-
-      push @{$parent->{-children}}, $node;
-    } elsif ($e->type =~ /-Elip$/) {
-      $e->children->each(process_node($parent)) if $e->children;
-      # $elip_count++;
-      # my $elip_id = "$sentence_id-e$elip_count";
-      # my $node = {
-      #   -name => $e->type,
-      #   -attributes => { id => $elip_id },
-      #   -children => [
-      #   ]
-      # };
-
-      # my $idref = $e->attr('idref');
-      # if ($idref) {
-      #   $node->{-attributes}->{'id.rf'} = $e->attr('idref') ;
-      #   $target_to_ref{$elip_id} = $idref;
-      #   $ref_to_target{$idref}->{$elip_id} = $node;
-      #   push @nodes, $node;       
-      # }
-      # for (grep { !/^idref$/ } keys %{$e->attr}) {
-      #   push @{$node->{-children}}, { -name => $_, -content => $e->attr($_) };
-      # }
-      # if ($e->children) {
-      #   my $children = { -name => 'children', -children => [] };
-      #   push @{$node->{-children}}, $children;
-      #   $e->children->each(process_node($children));
-      # }
+    my $counter = $counters{lc $e->type} += 1;
+    my $id = "$sentence_id-".lc $e->type . "$counter";
+    my $node = {
+        -name => $e->type,
+        -attributes => { id => $id, %{$e->attr} },
+    };
+    push @{$parent->{-children}}, $node;
+    if ($e->children) {
+      $node->{-children} = [];
+      $e->children->each(process_node($node));
     } else {
-      $nonterminal_count++;
-      my $nonterminal_id = "$sentence_id-n$nonterminal_count";
-      my $children = { -name => 'children', -children => [] };
-      my $node = {
-        -name => 'nonterminal',
-        -attributes => { id => $nonterminal_id },
-        -children => [
-          { -name => 'category', -content => $e->type },
-          $children
-        ]
-      };
-      $cat_values{$e->type} = 1;
-      # my $idref = $e->attr('idref');
-      # if ($idref) {
-      #   $node->{-attributes}->{'id.rf'} = $e->attr('idref') ;
-      #   $target_to_ref{$nonterminal_id} = $idref;
-      #   $ref_to_target{$idref}->{$nonterminal_id} = $node;
-      #   push @nodes, $node;      
-      # }
-      if ($e->attr('sort')) {
-        $node->{-attributes}->{sort} = $e->attr('sort');
-      }
-
-      push @{$parent->{-children}}, $node;
-
-      $e->children->each(process_node($children));
+      $node->{-content} = $e->text if $e->text;
     }
   };
 }
@@ -254,5 +165,3 @@ sub serialize_xml_element {
     $output .= qq(/>\n);
   }
 }
-
-
