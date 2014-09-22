@@ -1,0 +1,367 @@
+<!ELEMENT A ((pt|lb|Pragmatic)*,(w|mw|abbr|foreign|(A,Pron)|(A,T)|(T,A)|(CoordP,Pron)|(A,Pron,T)|(Pragmatic,A)|(A,Pragmatic)),(pt|lb|Pragmatic)*)>
+<!ATTLIST A
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT A-Elip (pt?)>
+<!ATTLIST A-Elip
+	idref	IDREF	#REQUIRED
+	type	(eq|var|neg)	"eq"
+	gram	CDATA	#IMPLIED
+>
+<!ELEMENT abbr (#PCDATA)>
+<!ATTLIST abbr
+	aa	CDATA	#REQUIRED
+	amb	(on|off)	"off"
+	ana	CDATA	#REQUIRED
+	cat	CDATA	#REQUIRED
+	exp	CDATA	#REQUIRED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+	type	CDATA	#REQUIRED
+	usage	CDATA	#IMPLIED
+>
+<!ELEMENT Adv ((pt|lb|Pragmatic)*,(w|mw|tok|abbr|foreign|(T?,Adv,T?)|(Adv,Pron)),(pt|lb|Pragmatic)*)>
+<!ATTLIST Adv
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT AdvPA ((pt|lb|Pragmatic)*,(((Adv|Gerund|Pron|AdvPC|AdvPA|CoordP),(DiscE|DiscM+|DiscA|Pragmatic)*,(T|N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|PP|PP-Elip|A|APA|APC|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE))|((((T|N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|PP|PP-Elip|A|APA|APC|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE),(DiscE|DiscM+|DiscA|Pragmatic)*)|nid),(Adv|Gerund|Pron|AdvPC|AdvPA|CoordP))|(abbr)),(pt|lb|Pragmatic)*)>
+<!ATTLIST AdvPA
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT AdvPC ((pt|lb|Pragmatic)*,(((Adv|Gerund),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)+)|((N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)+,(DiscE|DiscM+|DiscA|Pragmatic)*,(Adv|Gerund))),(pt|lb|Pragmatic)*)>
+<!ATTLIST AdvPC
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT alinea (ANY)>
+<!ATTLIST alinea
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT analysis (S)+>
+<!ELEMENT APA ((pt|lb|Pragmatic)*,(((A|Participle|APC|APA|CoordP),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE))|((((N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE),(DiscE|DiscM+|DiscA|Pragmatic)*)|nid),(A|Participle|APC|APA|CoordP|Pron))|abbr),(pt|lb|Pragmatic)*)>
+<!ATTLIST APA
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT APC ((pt|lb|Pragmatic)*,((nid?,(A|Participle|CoordP),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)+)|(((N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)+|(nid,(N|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)*)),(DiscE|DiscM+|DiscA|Pragmatic)*,(A|Participle|CoordP))|(abbr)),(pt|lb|Pragmatic)*)>
+<!ATTLIST APC
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT C (Pragmatic?,(w|mw|abbr|(C,T)),Pragmatic?)>
+<!ATTLIST C
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT chlen (ANY)>
+<!ATTLIST chlen
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT CL (((pt|lb|Pragmatic)*,((DiscE|pt)*,(C|T))?,Pragmatic?,((V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised)|CLDA),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,Adv,CL,(pt|lb|Pragmatic)*))>
+<!ATTLIST CL
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT class (#PCDATA*)>
+<!ELEMENT CLCHE (((pt|lb|Pragmatic|DiscE)*,C,Pragmatic?,(V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,VPF,(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,T,CLCHE,(pt|lb|Pragmatic)*))>
+<!ATTLIST CLCHE
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CLDA ((pt|lb|Pragmatic)*,(V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised),(pt|lb|Pragmatic)*)>
+<!ATTLIST CLDA
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CLQ ((pt|lb|Pragmatic)*,(V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised|CLDA),(pt|lb|Pragmatic)*)>
+<!ATTLIST CLQ
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CLR ((pt|lb|Pragmatic)*,(V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised|CLDA|CLQ),(pt|lb|Pragmatic)*)>
+<!ATTLIST CLR
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CLZADA ((pt|lb|Pragmatic|DiscE)*,C,Pragmatic?,(V|V-Elip|VD-Elip|Participle|CoordP|VPC|VPA|VPS|VPF|Verbalised),(pt|lb|Pragmatic)*)>
+<!ATTLIST CLZADA
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CoIndex (identifier*)>
+<!ELEMENT Conj ((C|T|Pron|Adv|pt|lb|Pragmatic)+)>
+<!ATTLIST Conj
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT ConjArg (Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)>
+<!ATTLIST ConjArg
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT CoordP (((pt|lb|Pragmatic)*,(Conj|ConjArg|DiscE|DiscM+|DiscA|Pragmatic)+,(pt|lb|Pragmatic)*)|(Adv,CoordP))>
+<!ATTLIST CoordP
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT DiscA ((Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|Conj))>
+<!ATTLIST DiscA
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT DiscE ((Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|Conj))>
+<!ATTLIST DiscE
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT DiscM ((Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|Conj))>
+<!ATTLIST DiscM
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT Discourse (InDiscourse,OutDiscourse)>
+<!ELEMENT div0 (head|p|s|div1|trailer|list)*>
+<!ATTLIST div0
+	file	CDATA	#IMPLIED
+	sd	CDATA	#IMPLIED
+	n	CDATA	#IMPLIED
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT div1 (p|s|head|trailer|list)*>
+<!ATTLIST div1
+	sd	CDATA	#IMPLIED
+	file	CDATA	#IMPLIED
+	n	CDATA	#IMPLIED
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT foreign (#PCDATA)>
+<!ATTLIST foreign
+	aa	CDATA	#REQUIRED
+	ana	CDATA	#REQUIRED
+	cat	CDATA	#REQUIRED
+	lang	CDATA	#IMPLIED
+>
+<!ELEMENT Gerund ((pt|lb|Pragmatic)*,(w|(T?,Gerund,(T|Pron)*)),(pt|lb|Pragmatic)*)>
+<!ATTLIST Gerund
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT H ((pt|lb|Pragmatic)*,(w|tok|name|abbr|foreign|(H,T)),(pt|lb|Pragmatic)*)>
+<!ATTLIST H
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT head (#PCDATA*|(text?,(s+|hi|tok|Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE),source?))>
+<!ATTLIST head
+	rend	CDATA	#IMPLIED
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT hi (s+|hi|Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)>
+<!ATTLIST hi
+	rend	CDATA	#IMPLIED
+>
+<!ELEMENT I ((pt|lb|Pragmatic)*,(w|mw),(pt|lb|Pragmatic)*)>
+<!ATTLIST I
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT identifier ((member|subset)*)>
+<!ATTLIST identifier
+	id	ID	#REQUIRED
+>
+<!ELEMENT InDiscourse (referent*)>
+<!ELEMENT item (ANY)>
+<!ATTLIST item
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT lb EMPTY>
+<!ELEMENT list (ANY)>
+<!ATTLIST list
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT M ((pt|lb|Pragmatic)*,(w|mw|tok|foreign|((M|C)+)|(M,T)|(T,M)|(M,Pron)|(Adv,M)),(pt|lb|Pragmatic)*)>
+<!ATTLIST M
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT member EMPTY>
+<!ATTLIST member
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT mw (#PCDATA)>
+<!ATTLIST mw
+	aa	CDATA	#REQUIRED
+	ana	CDATA	#REQUIRED
+	exp	CDATA	#IMPLIED
+	usage	CDATA	#IMPLIED
+>
+<!ELEMENT N (((pt|lb|Pragmatic)*,(w|mw|tok|name|abbr|foreign|(N,Pron,T)|(N,Pron)|(Pron,N)|(CoordP,Pron)|(N,T)|(Adv,N)|(T,N)|(N,Pragmatic)|(Pragmatic,N)),(pt|lb|Pragmatic)*))>
+<!ATTLIST N
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT N-Elip (pt?)>
+<!ATTLIST N-Elip
+	idref	IDREF	#REQUIRED
+	type	CDATA	#IMPLIED
+	gram	CDATA	#IMPLIED
+>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+	aa	CDATA	#REQUIRED
+	amb	(on|off)	"off"
+	ana	CDATA	#REQUIRED
+	cat	CDATA	#REQUIRED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other)	#REQUIRED
+	usage	CDATA	#IMPLIED
+>
+<!ELEMENT ND-Elip (pt?)>
+<!ATTLIST ND-Elip
+	idref	IDREF	#IMPLIED
+	type	(worldknowledge|discourse)	"worldknowledge"
+	form	CDATA	#IMPLIED
+	gram	CDATA	#IMPLIED
+>
+<!ELEMENT nid EMPTY>
+<!ATTLIST nid
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT Nomin (((pt|lb|Pragmatic)*,(Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|abbr|name|pt),(pt|lb|Pragmatic)*))>
+<!ATTLIST Nomin
+	idref	IDREF	#IMPLIED
+	agr	(Under|Nmsi|Nmsh|Nmsf|Nmpi|Nmpd|Nfsi|Nfsd|Nfpi|Nfpd|Nnsi|Nnsd|Nnpi|Nnpd)	#REQUIRED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT NPA (((pt|lb|Pragmatic)*,(((N|Subst|Nomin|Pron|NPC|NPA|N-Elip|ND-Elip|H|CoordP),(DiscE|DiscM+|DiscA|Pragmatic)*,(NPA|NPC|Participle|A|Adv|M|H|N|Pron|A-Elip|APA|APC|PP|PP-Elip|AdvPA|AdvPC|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE))|(((NPA|NPC|Participle|A|Adv|M|H|N|Pron|A-Elip|APA|APC|PP|PP-Elip|AdvPA|AdvPC|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)|nid),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|Subst|Nomin|Pron|NPC|NPA|N-Elip|ND-Elip|H|CoordP))|(nid,(M|AdvPA|Adv))|(abbr|name)),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,(N|NPA|NPC),Pragmatic,(pt|lb|Pragmatic)*))>
+<!ATTLIST NPA
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT NPC ((pt|lb|Pragmatic)*,(((N|Pron|N-Elip|ND-Elip|CoordP),(DiscE|DiscM+|DiscA|Pragmatic)*,(NPC|NPA|N-Elip|N|Subst|Nomin))|(((NPC|NPA|N-Elip|N|Subst|Nomin,(DiscE|DiscM+|DiscA|Pragmatic)*)|nid),(N|Pron|N-Elip|ND-Elip|CoordP))|(Adv,NPC)),(pt|lb|Pragmatic)*)>
+<!ATTLIST NPC
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT OutDiscourse (referent*)>
+<!ELEMENT p ((chlen|alinea|hi)*,text?,sp?,(s|pt|chlen|alinea|lb)+,source?)>
+<!ATTLIST p
+	type	CDATA	#IMPLIED
+	page	CDATA	#IMPLIED
+	page98	CDATA	#IMPLIED
+>
+<!ELEMENT Participle (pro-ss?,(pt|lb|Pragmatic)*,(w|((T|Pron)*,Participle,(T|Pron)*,DiscA*,Participle?,(T|Pron)*)|(Pron+,CoordP)),(pt|lb|Pragmatic)*)>
+<!ATTLIST Participle
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT PP (((pt|lb|Pragmatic)*,(Prep|Prep-Elip|PrepD-Elip|CoordP),DiscA*,(A|APA|APC|Participle|H|N|Subst|Nomin|Pron|NPC|NPA|A|APA|APC|Adv|AdvPA|AdvPC|N-Elip|CoordP|PP|PP-Elip|CLDA|CLCHE|CL),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,Adv,PP,(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,PP,Adv,(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,PP,(A|APA|APC|Participle),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,T,(PP|CoordP),(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,PP,PP,(pt|lb|Pragmatic)*)|((pt|lb|Pragmatic)*,nid,PP,(pt|lb|Pragmatic)*)|(foreign))>
+<!ATTLIST PP
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT PP-Elip EMPTY>
+<!ATTLIST PP-Elip
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT PPD-Elip EMPTY>
+<!ATTLIST PPD-Elip
+	idref	IDREF	#IMPLIED
+	type	(worldknowledge|discourse)	"worldknowledge"
+	form	CDATA	#IMPLIED
+	gram	CDATA	#IMPLIED
+>
+<!ELEMENT Pragmatic ((pt|lb|Pragmatic)*,(Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|Conj|I|pt)+,(pt|lb|Pragmatic)*)>
+<!ATTLIST Pragmatic
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT Prep ((w|mw)|(Prep,N,Prep?))>
+<!ATTLIST Prep
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT Prep-Elip EMPTY>
+<!ATTLIST Prep-Elip
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT PrepD-Elip EMPTY>
+<!ATTLIST PrepD-Elip
+	form	CDATA	#REQUIRED
+>
+<!ELEMENT pro-com EMPTY>
+<!ATTLIST pro-com
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT pro-ss EMPTY>
+<!ATTLIST pro-ss
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT Pron ((pt|lb|Pragmatic)*,(w|mw|(Pron,T,T?)|(T,Pron)|(Adv,Pron)|(Pron,Pron)),(pt|lb|Pragmatic)*)>
+<!ATTLIST Pron
+	idref	IDREF	#IMPLIED
+	ref	(yes|no)	"yes"
+>
+<!ELEMENT pt (#PCDATA)>
+<!ATTLIST pt
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT quote ANY>
+<!ELEMENT referent (#PCDATA*)>
+<!ATTLIST referent
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT s (class?,text,analysis,source?)>
+<!ATTLIST s
+	page	CDATA	#IMPLIED
+	page98	CDATA	#IMPLIED
+>
+<!ELEMENT S (Discourse,CoIndex,(pt|lb|Pragmatic)*,((Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)|Pragmatic+),(pt|lb|Pragmatic)*)>
+<!ATTLIST S
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT source (#PCDATA*)>
+<!ELEMENT sp ((Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|pt|lb|Pragmatic)+)>
+<!ELEMENT subset EMPTY>
+<!ATTLIST subset
+	idref	IDREF	#REQUIRED
+>
+<!ELEMENT Subst (((pt|lb|Pragmatic)*,(A|Participle|Pron|M|H|I|Adv),(pt|lb|Pragmatic)*))>
+<!ATTLIST Subst
+	idref	IDREF	#IMPLIED
+	sort	(NE-Pers|NE-Loc|NE-Org|NE-Other|common)	"common"
+>
+<!ELEMENT T ((pt|lb|Pragmatic)*,(w|mw|foreign|(T,T)|(Adv,T)),(pt|lb|Pragmatic)*)>
+<!ATTLIST T
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT text (#PCDATA*)>
+<!ELEMENT textBTBV4 (div0|div1|p|s)+>
+<!ELEMENT tok (#PCDATA)>
+<!ATTLIST tok
+	type	(lats|lat|cyr|num|latfc|latac|latm|salph|alphanum|other)	#IMPLIED
+>
+<!ELEMENT trailer (#PCDATA|text|w|pt|tok|s|Gerund|Participle|N|A|V|Adv|M|H|Pron|C|T|Prep|I|Subst|Nomin|Verbalised|NPA|NPC|N-Elip|APA|APC|AdvPA|AdvPC|VPC|VPA|VPS|VPF|V-Elip|PP|PP-Elip|CoordP|CL|CLR|CLDA|CLZADA|CLQ|CLCHE)*>
+<!ATTLIST trailer
+	type	CDATA	#IMPLIED
+>
+<!ELEMENT V (pro-ss?,(pt|lb|Pragmatic)*,(w|abbr|foreign|((T|Pron)*,V,(T|Pron)*)|(V?,(T|Pron)*,((V,(T|Pron)*,Pragmatic?,DiscA*,Pragmatic?,(Participle|V-Elip|VD-Elip)?,Pragmatic?,Participle?)|CoordP))|(T,(V-Elip|VD-Elip))|((V-Elip|VD-Elip),Participle)|(Participle,V,Participle)|((Participle?,T?,Pron*,Pragmatic?,DiscA*,Pragmatic?,V,(T|Pron)*))|((T,V,Pron*,V,Pragmatic?,DiscA*,Pragmatic?,Participle?))|((T,V,Pron*,CoordP))|(V,Adv)|(nid,V)|(C,(T|Pron)*,Pragmatic?,((V,Pragmatic?,DiscA*,Pragmatic?,Participle?,T?)|CoordP))),(pt|lb|Pragmatic)*)>
+<!ATTLIST V
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT V-Elip (pro-ss?,pt?)>
+<!ATTLIST V-Elip
+	idref	IDREF	#REQUIRED
+	type	(eq|var|neg)	"eq"
+	gram	CDATA	#IMPLIED
+>
+<!ELEMENT VD-Elip (pro-ss?,pt?)>
+<!ATTLIST VD-Elip
+	idref	IDREF	#IMPLIED
+	type	(worldknowledge|exists|discourse)	"worldknowledge"
+	gram	CDATA	#IMPLIED
+	form	CDATA	#IMPLIED
+>
+<!ELEMENT Verbalised (pro-ss?,(pt|lb|Pragmatic)*,(T|I|Adv),(pt|lb|Pragmatic)*)>
+<!ATTLIST Verbalised
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT VPA ((pt|lb|Pragmatic)*,((T,(DiscE|DiscM+|DiscA|Pragmatic)*,(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised))|((VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|H|Subst|Nomin|Pron|Participle|NPC|NPA|N-Elip|M|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|Gerund|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip))|((((N|H|Subst|Nomin|Pron|Participle|NPC|NPA|N-Elip|M|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|Gerund|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip),(DiscE|DiscM+|DiscA|Pragmatic)*)|nid),(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised))|(DiscM,(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised),(N|H|Subst|Nomin|Pron|Participle|NPC|NPA|N-Elip|M|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|Gerund|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip),DiscM)|(DiscM,(N|H|Subst|Nomin|Pron|Participle|NPC|NPA|N-Elip|M|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|Gerund|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip),(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised),DiscM)),(pt|lb|Pragmatic)*)>
+<!ATTLIST VPA
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT VPC (((pt|lb|Pragmatic)*,(((V|Participle|CoordP|V-Elip|VD-Elip|Verbalised),((DiscE|DiscM+|DiscA|Pragmatic)|(N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip))*,(N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip))|(((N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip,(DiscE|DiscM+|DiscA|Pragmatic)*)+|(nid,(N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip,(DiscE|DiscM+|DiscA|Pragmatic)*)*)),(DiscE|DiscM+|DiscA|Pragmatic)*,(V|Participle|CoordP|V-Elip|VD-Elip|Verbalised),((DiscE|DiscM+|DiscA|Pragmatic)*,(N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip))+)|(((nid?,nid?)|(N|H|Subst|Nomin|Pron|Participle|M|NPC|NPA|N-Elip|CoordP|A|APA|APC|PP|PP-Elip|PPD-Elip|Adv|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip,(DiscE|DiscM+|DiscA|Pragmatic)*)+),(DiscE|DiscM+|DiscA|Pragmatic)*,(V|Participle|CoordP|V-Elip|VD-Elip|Verbalised))),(pt|lb|Pragmatic)*)|(Adv,VPC))>
+<!ATTLIST VPC
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT VPF ((pt|lb|Pragmatic)*,(((VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised),(DiscE|Pragmatic|DiscM)+)|((DiscE|Pragmatic|DiscM)+,(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised))|(DiscE,C,(VD-Elip|V|V-Elip|Participle|CoordP|VPC|VPA|VPS|Verbalised))),(pt|lb|Pragmatic)*)>
+<!ATTLIST VPF
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT VPS ((pt|lb|Pragmatic)*,DiscM*,(((VD-Elip|V|V-Elip|Participle|CoordP|VPC|Verbalised),(DiscE|DiscM+|DiscA|Pragmatic)*,(N|H|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|PP|PP-Elip|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip))|((((N|H|Subst|Nomin|Pron|NPC|NPA|N-Elip|CoordP|PP|PP-Elip|AdvPA|AdvPC|CL|CLR|CLDA|CLZADA|CLQ|CLCHE|ND-Elip),(DiscE|DiscM+|DiscA|Pragmatic)*)|nid),(VD-Elip|V|V-Elip|Participle|CoordP|VPC|Verbalised))),DiscM*,(pt|lb|Pragmatic)*)>
+<!ATTLIST VPS
+	idref	IDREF	#IMPLIED
+>
+<!ELEMENT w (#PCDATA)>
+<!ATTLIST w
+	aa	CDATA	#REQUIRED
+	ana	CDATA	#REQUIRED
+	exp	CDATA	#IMPLIED
+	usage	CDATA	#IMPLIED
+>
