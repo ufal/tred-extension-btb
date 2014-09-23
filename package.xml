@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tred_extension xmlns="http://ufal.mff.cuni.cz/pdt/pml/" install_size="62354">
+  <head>
+    <schema href="tred_extension_schema.xml"/>
+  </head>
+  <pkgname>btb</pkgname>
+  <repository href="http://ufal.mff.cuni.cz/tred/extensions/core/"/>
+  <title>Bulgarian Treebank</title>
+  <version>1.00</version>
+  <copyright year="2014">Michal Sedlák</copyright>
+
+  <description>
+This package contains a conversion script for Bulgarian Treebank format to PML
+and a stylesheets for visualization of the resulting PML in TrEd.
+  </description>
+
+  <icon>icons/btb.png</icon>
+  <require>
+    <tred min_version="2.4936"/>
+  </require>
+</tred_extension>

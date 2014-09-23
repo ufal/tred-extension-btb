@@ -853,6 +853,14 @@
   </container>
  </type>
 
+ <type name="lb.type">
+  <container role="#NODE">
+   <attribute name="id" role="#ID" required="1">
+    <cdata format="ID"/>
+   </attribute>
+  </container>
+ </type>
+
  <type name="M.type">
   <container role="#NODE">
    <attribute name="id" role="#ID" required="1">
@@ -1609,6 +1617,15 @@
   </container>
  </type>
 
+<!--  <type name="text.type">
+  <container role="#NODE">
+   <attribute name="id" role="#ID" required="1">
+    <cdata format="ID"/>
+   </attribute>
+   <cdata format="any" />
+  </container>
+ </type> -->
+
  <type name="tok.type">
   <container role="#NODE">
    <attribute name="id" role="#ID" required="1">
@@ -1651,7 +1668,7 @@
     <element name="CL" type="CL.type" />
     <element name="N" type="N.type" />
     <element name="NPC" type="NPC.type" />
-    <element name="text" type="text.type" />
+<!--     <element name="text" type="text.type" /> -->
     <element name="VPA" type="VPA.type" />
     <element name="APA" type="APA.type" />
     <element name="T" type="T.type" />
@@ -1677,7 +1694,7 @@
     <element name="tok" type="tok.type" />
     <element name="H" type="H.type" />
     <element name="V" type="V.type" />
-    <element name="s" type="s.type" />
+<!--     <element name="s" type="s.type" /> -->
     <element name="CoordP" type="CoordP.type" />
     <element name="pt" type="pt.type" />
     <element name="PP-Elip" type="PP-Elip.type" />

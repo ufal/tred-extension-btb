@@ -1,0 +1,13 @@
+context: Bulgarian_Treebank
+node: #{black}bla
+
+
+rootstyle: 
+  #{balance:spread}
+  #{skipHiddenLevels:1}
+  #{CurrentTextBox-fill:red}
+  #{nodeXSkip:4}
+  #{nodeYSkip:0}
+  #{NodeLabel-skipempty:1}
+  #{NodeLabel-halign:center}
+  #{Node-textalign:center}
