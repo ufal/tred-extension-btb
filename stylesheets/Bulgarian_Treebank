@@ -1,13 +1,39 @@
 context: Bulgarian_Treebank
-node: #{black}bla
+hint: 
+node: <? ($${#name} eq 'S' ? 'S' : ($${#name} =~ m/^(abbr|w|lb|mw|pt|nid|tok|foreign|name)$/ ? $${#content}||$${#name} : $${cat})) ?>
 
+text: <? ($${#name} eq 'pt' ? "#{-nospacebefore}".$${#content} : $${#content}) ?>
 
-rootstyle: 
+rootstyle:
+  #{Node-shape:rectangle} 
   #{balance:spread}
   #{skipHiddenLevels:1}
-  #{CurrentTextBox-fill:red}
+  #{Oval-fill:#cccccc}
+  #{Oval-outline:black}
+  #{Oval-width:2}
   #{nodeXSkip:4}
   #{nodeYSkip:0}
   #{NodeLabel-skipempty:1}
   #{NodeLabel-halign:center}
   #{Node-textalign:center}
+  #{Node-surroundtext:1}
+  #{NodeLabel-valign:center}
+
+style: <?
+  my $style;
+  if ($${#name} =~ m/^(abbr|w|lb|mw|pt|nid|tok|foreign|name)$/) {
+    $style = "#{Oval-fill:#99ffcc}";
+    $style = "#{Oval-fill:#ff99ff}" if ($${#name} =~ m/^(nid)$/);
+  } else {
+    $style = "#{Oval-fill:#9999ff}" if ($${cat} =~ m/^(Pragmatic|CLDA|CL|CLZADA|CLQ|CLR|ConjArg|Conj|ConjArg|CLCHE)$/);
+    $style = "#{Oval-fill:#9999ff}#{Node-shape:oval}" if ($${cat} =~ m/^(CoordP|Adv|AdvPA|AdvPC)$/);
+    $style = "#{Oval-fill:#ff9b9b}#{Node-shape:oval}" if ($${cat} =~ m/^(N|H|NPA|Subst|NE-Pers|N-Elip)$/);
+    $style = "#{Oval-fill:#ffff00}#{Node-shape:oval}" if ($${cat} =~ m/^(V|V-Elip|VD-Elip|VPS|VPA|VPC|VPF|Participle|Gerund|pro-ss)$/);
+    $style = "#{Oval-fill:#ff99ff}#{Node-shape:oval}" if ($${cat} =~ m/^(DiscE|DiscA|T|C)$/);
+    $style = "#{Oval-fill:#66ccff}#{Node-shape:oval}" if ($${cat} =~ m/^(Pron)$/);
+    $style = "#{Oval-fill:#00cc33}#{Node-shape:oval}" if ($${cat} =~ m/^(M|PP|PP-Elip|Prep)$/);
+    $style = "#{Oval-fill:#ff9966}#{Node-shape:oval}" if ($${cat} =~ m/^(A|APA|APC)$/);
+  }
+  $style;
+?>
+
