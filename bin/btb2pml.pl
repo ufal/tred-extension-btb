@@ -92,7 +92,7 @@ HEADER
     @nodes = %ref_to_target = %target_to_ref = ();
 
     my $root = {
-      -name => $e->type,
+      -name => 'S',
       -attributes => { id => $sentence_id, %{$e->attr} },
       -children => []
     };
@@ -131,10 +131,12 @@ sub process_node {
     my ($e, $count) = @_;
 
     my $counter = $counters{lc $e->type} += 1;
-    my $id = "$sentence_id-".lc $e->type . "$counter";
+    my $id = "$sentence_id-". lc $e->type . "$counter";
+    my $name = $e->type =~ /^(abbr|w|lb|mw|pt|nid|tok|foreign|name)$/ ? $e->type : 'node';
+    my $cat = $name eq 'node' ? $e->type : '';
     my $node = {
-        -name => $e->type,
-        -attributes => { id => $id, %{$e->attr} },
+        -name => $name,
+        -attributes => { id => $id, ($cat ? (cat => $cat) : ()), %{$e->attr} },
     };
     push @{$parent->{-children}}, $node;
     if ($e->children) {
