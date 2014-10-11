@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 our $VERSION="0.1";
 
 use Mojo::DOM;
+use Mojo::Util 'xml_escape';
 use File::Spec;
 use File::Basename qw(dirname);
 use File::Path qw(make_path);
@@ -154,15 +155,15 @@ sub serialize_xml_element {
   $output = (' ' x $indent).'<' . $node->{-name};
   my $attributes = $node->{-attributes} || {};
   for (keys %$attributes) {
-    my $val = $attributes->{$_};
-    $val =~ s/&/&amp;/; $val =~ s/</&lt;/; $val =~ s/"/&quot;/;
+    my $val = xml_escape $attributes->{$_};
     $output .= qq{ $_="$val"};
   }
   if (exists $node->{-children}) {
     $output .= ">\n".join('', map serialize_xml_element($_,$indent+1), @{$node->{-children}}) . 
       (' ' x $indent).qq(</$node->{-name}>\n);
   } elsif (exists $node->{-content}) {
-    $output .= qq(>$node->{-content}</$node->{-name}>\n);
+    my $content = xml_escape $node->{-content};
+    $output .= qq(>$content</$node->{-name}>\n);
   } else {
     $output .= qq(/>\n);
   }
