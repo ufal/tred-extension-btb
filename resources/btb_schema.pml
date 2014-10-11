@@ -220,13 +220,13 @@
    <attribute name="id" role="#ID" required="1">
     <cdata format="ID"/>
    </attribute>
-   <attribute name="cat" required="1">
+   <attribute name="cat">
     <cdata format="any" />
    </attribute>
-   <attribute name="aa" required="1">
+   <attribute name="aa">
     <cdata format="any" />
    </attribute>
-   <attribute name="ana" required="1">
+   <attribute name="ana">
     <cdata format="any" />
    </attribute>
    <attribute name="lang">
@@ -252,13 +252,13 @@
    <attribute name="usage">
     <cdata format="any" />
    </attribute>
-   <attribute name="aa" required="1">
+   <attribute name="aa">
     <cdata format="any" />
    </attribute>
    <attribute name="exp">
     <cdata format="any" />
    </attribute>
-   <attribute name="ana" required="1">
+   <attribute name="ana">
     <cdata format="any" />
    </attribute>
    <cdata format="any" />
@@ -270,13 +270,13 @@
    <attribute name="id" role="#ID" required="1">
     <cdata format="ID"/>
    </attribute>
-   <attribute name="ana" required="1">
+   <attribute name="ana">
     <cdata format="any" />
    </attribute>
-   <attribute name="cat" required="1">
+   <attribute name="cat">
     <cdata format="any" />
    </attribute>
-   <attribute name="aa" required="1">
+   <attribute name="aa">
     <cdata format="any" />
    </attribute>
    <attribute name="amb">
@@ -285,7 +285,7 @@
      <value>off</value>
     </choice>
    </attribute>
-   <attribute name="sort" required="1">
+   <attribute name="sort">
     <choice>
      <value>NE-Pers</value>
      <value>NE-Loc</value>
@@ -305,7 +305,7 @@
    <attribute name="id" role="#ID" required="1">
     <cdata format="ID"/>
    </attribute>
-   <attribute name="didref" required="1">
+   <attribute name="didref">
     <cdata format="PMLREF" />
    </attribute>
   </container>
@@ -354,10 +354,10 @@
    <attribute name="usage">
     <cdata format="any" />
    </attribute>
-   <attribute name="aa" required="1">
+   <attribute name="aa">
     <cdata format="any" />
    </attribute>
-   <attribute name="ana" required="1">
+   <attribute name="ana">
     <cdata format="any" />
    </attribute>
    <attribute name="exp">
