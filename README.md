@@ -4,5 +4,5 @@ This is a TrEd extension for [Bulgarian Treebank](http://bultreebank.org/). It c
 
 # Conversion
 
-	bin/btb2pml.pl /path/to/xml/data/*.xml -o /output/directory
+	./bin/btb2pml.pl /path/to/xml/data/*.xml -o /output/directory
 

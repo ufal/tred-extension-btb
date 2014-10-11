@@ -55,7 +55,7 @@ my (%counters, $order);
 my $sentence_id;
 my (@nodes, %ref_to_target, %target_to_ref, %cat_values);
 for my $filename (@files) {
-  my $xml = read_file($filename, binmode => 'utf8');
+  my $xml = read_file($filename, binmode => ':utf8');
   my $dom = Mojo::DOM->new($xml);
 
   my @discourse = $dom->find('Discourse')->each;
@@ -121,7 +121,7 @@ $buff .= <<'FOOTER';
 </btb>
 FOOTER
 
-  write_file(File::Spec->catfile($converted_dir, "$base_id.pml"), {binmode => 'utf8'}, $buff);
+  write_file(File::Spec->catfile($converted_dir, "$base_id.pml"), {binmode => ':utf8'}, $buff);
 }
 
 sub process_node {
