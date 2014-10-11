@@ -187,13 +187,13 @@
      <value>off</value>
     </choice>
    </attribute>
-   <attribute name="ana" required="1">
+   <attribute name="ana">
     <cdata format="any" />
    </attribute>
    <attribute name="usage">
     <cdata format="any" />
    </attribute>
-   <attribute name="type" required="1">
+   <attribute name="type">
     <cdata format="any" />
    </attribute>
    <attribute name="sort">
@@ -205,10 +205,10 @@
      <value>common</value>
     </choice>
    </attribute>
-   <attribute name="cat" required="1">
+   <attribute name="cat">
     <cdata format="any" />
    </attribute>
-   <attribute name="exp" required="1">
+   <attribute name="exp">
     <cdata format="any" />
    </attribute>
    <cdata format="any" />
